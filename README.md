@@ -14,14 +14,7 @@ A simple JavaScript project that fetches user data from [DummyJSON](https://dumm
 * Uses pure JavaScript DOM manipulation (no frameworks required)
 * Clean and minimal TailwindCSS-based styling
 
----
 
-## Demo
-
-![Screenshot](./screenshot.png)
-*(Add a screenshot of the rendered UI here)*
-
----
 
 ## Usage
 
@@ -111,5 +104,6 @@ fetch('https://dummyjson.com/users')
 * Integrate with frameworks like React or Vue for advanced UI
 
 ---
+
 
 
