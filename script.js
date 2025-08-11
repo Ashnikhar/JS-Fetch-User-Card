@@ -3,49 +3,49 @@ fetch('https://dummyjson.com/users')
   .then(data => {
     const container = document.createElement('div');
     container.className = `
-      max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl 
-      mx-auto mt-10
+      max-w-6xl mx-auto mt-10
       grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6
       px-4
     `;
     
     data.users.forEach(user => {
+      // Card container
       const card = document.createElement('div');
       card.className = `
-        bg-white rounded-xl shadow-md overflow-hidden flex items-center space-x-6 p-6
-        hover:shadow-xl transition-shadow duration-300
+        bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center
+        hover:shadow-indigo-500/50 transition duration-300
       `; 
      
-
+      // User image
       const img = document.createElement('img');
-      img.className = 'h-20 w-20 rounded-full object-cover flex-shrink-0';
+      img.className = 'h-20 w-20 rounded-full object-cover border-2 border-indigo-500';
       img.src = user.image;
       img.alt = `${user.firstName} avatar`;
 
-      const contentDiv = document.createElement('div');
-      contentDiv.className = 'flex flex-col';
-
+      // User name
       const nameDiv = document.createElement('div');
-      nameDiv.className = 'text-xl font-semibold text-gray-900 truncate';
+      nameDiv.className = 'mt-4 text-lg font-semibold text-white truncate';
       nameDiv.textContent = `${user.firstName} ${user.lastName}`;
 
+      // Email
       const emailP = document.createElement('p');
-      emailP.className = 'text-gray-500 break-words';
+      emailP.className = 'text-gray-400 text-sm text-center break-words';
       emailP.textContent = user.email;
 
+      // Status badge
       const statusSpan = document.createElement('span');
       statusSpan.className = `
-        inline-block mt-2 px-3 py-1 text-sm bg-blue-100 text-blue-800 rounded-full
-        w-max
+        inline-block mt-2 px-3 py-1 text-xs bg-indigo-600 text-white rounded-full
       `;
       statusSpan.textContent = user.status || 'Active';
 
-      contentDiv.appendChild(nameDiv);
-      contentDiv.appendChild(emailP);
-      contentDiv.appendChild(statusSpan);
-
+      // Append all to card
       card.appendChild(img);
-      card.appendChild(contentDiv);
+      card.appendChild(nameDiv);
+      card.appendChild(emailP);
+      card.appendChild(statusSpan);
+
+      // Add card to container
       container.appendChild(card);
     });
 
